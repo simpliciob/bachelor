@@ -1,0 +1,32 @@
+{% extends "change_form.html"%}
+{%block head_title%} Add Exam Marks ||{{block.super}}{%endblock head_title%}
+
+
+{%block content %}
+
+{%if form.errors.non_field_errors %}
+{{form.errors.non_field_errors}}
+{% endif %}
+
+
+<div id="content-main">
+<form method="POST">
+<fieldset class="module aligned wide">
+
+{% csrf_token %}
+
+
+ {{form.as_p}}
+ 
+ <center>
+<input type="submit" value="Add"></br>
+</center>
+
+
+</form>
+
+</div>
+</fieldset>
+{%endblock %}
+
+

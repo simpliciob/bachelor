@@ -1,0 +1,32 @@
+{% extends "base_site.html"%}
+{%block head_title%} Subjects ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h1>payment history</h1>
+
+
+
+<table border="1" cellpadding="1">
+
+<th> bank name</th>
+<th>amount paid</th>
+<th>invoice number</th>
+<th>tutoring fee</th>
+
+
+{% for obj in fee_list%}
+
+<tr>
+<td>{{obj.Bank_name}}</td>
+<td>{{obj.Amount_paid}}</td>
+<td>{{obj.invoice_number}}</td>
+<td>{{obj.tutoring_fee}}</td>
+
+
+</tr>
+{%endfor%}
+</table>
+{%endblock content%}
+

@@ -1,0 +1,28 @@
+{% extends "base_site.html"%}
+{%block head_title%} Subjects ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h1> school report</h1>
+
+
+
+<table >
+<th> class position:</th> 
+<th>comment:  </th>       
+<th>behaviour  </th>      
+<th>achievement </th>
+{% for obj in object_list %}
+<tr>
+<td>{{obj.class_position}}</td>
+<td>{{obj.comments}}</td>
+<td>{{obj.behaviour}}</td>
+<td>{{obj.achievements}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{%endblock content%}
+

@@ -1,0 +1,35 @@
+{% extends "base_site.html"%}
+{%block head_title%} Subjects ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h1>library system</h1>
+
+
+
+<table border="1" cellpadding="1">
+
+<th> book number</th>
+<th>book title</th>
+<th>date taken</th>
+<th>return date</th>
+{%if locations%}
+
+
+{% for obj in object_list%}
+
+<tr>
+
+<td>{{obj.book_number}}</td>
+<td>{{obj.book_title}}</td>
+<td>{{obj.date_taken}}</td>
+<td>{{obj.return_date}}</td>
+
+
+</tr>
+{%endfor%}
+{%endif%}
+</table>
+{%endblock content%}
+

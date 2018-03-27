@@ -1,0 +1,42 @@
+{% extends "base_site.html"%}
+{%block head_title%} Examination Results ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h1> Examination Marks</h1>
+<form method="GET" action=".">
+<input type="text" placeholder="search..." name="q" value={{request.GET.q}}>
+<button type="submit">search</button>
+</form>
+</hr>
+{% if locations %}
+
+
+<table border="1" cellpadding="1">
+
+<th >student number</th>
+<th>subject name</th>
+<th>Total Mark</th>
+<th>grade</th>
+<th>comment </th>
+<th>edit </th>
+<th>delete</th>
+{% for obj in locations %}
+
+<tr>
+<td>{{obj.student_number}}</a></td>
+<td>{{obj.subject_name}}</td>
+<td>{{obj.Total_Mark}}</td>
+<td>{{obj.grade}}</td>
+<td>{{obj.comment}}</td>
+<td><a href='{%url "exams:update" obj.id %}'>edit| </a></td>
+<td><a href='{%url "exams:delete-mark" obj.id %}'>delete</a></td>
+</tr>
+{%endfor%}
+</table>
+{% else %}
+<p><strong>No items Found</strong></p>
+{% endif %}
+{%endblock content%}
+

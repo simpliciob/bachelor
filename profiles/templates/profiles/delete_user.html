@@ -1,0 +1,32 @@
+{% extends "base_site.html"%}
+{%block head_title%}Delete ExamMark||{{block.super}}{%endblock head_title%}
+
+
+{%block content %}
+
+{%if form.errors.non_field_errors %}
+{{form.errors.non_field_errors}}
+{% endif %}
+
+
+<div id="content-main">
+<form method="POST">
+<fieldset class="module aligned wide">
+
+{% csrf_token %}
+
+
+<p> do you want to delete {{object.username}}</p>
+ 
+ <center>
+<input type="submit" name='submit' value="delete"></br>
+</center>
+
+
+</form>
+
+</div>
+</fieldset>
+{%endblock %}
+
+

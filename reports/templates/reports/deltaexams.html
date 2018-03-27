@@ -1,0 +1,33 @@
+{% extends "base_site.html"%}
+{%block head_title%} Subjects ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h1> ExamMarks</h1>
+
+
+
+<table border="1" cellpadding="1">
+
+<th >student number</th>
+<th>subject_ID</th>
+<th>paper1_Mark</th>
+<th>papert2_Mark</th>
+<th>paper3_Mark</th>
+<th>paper4_Mark</th>
+{% for obj in object_list%}
+
+<tr>
+<td><a href='{{obj.get_absolute_url}}'>{{obj.student_number}}</a></td>
+<td>{{obj.subject_ID}}</td>
+<td>{{obj.paper1_Mark}}</td>
+<td>{{obj.paper2_Mark}}</td>
+<td>{{obj.paper3_Mark}}</td>
+<td>{{obj.paper4_Mark}}</td>
+
+</tr>
+{%endfor%}
+</table>
+{%endblock content%}
+

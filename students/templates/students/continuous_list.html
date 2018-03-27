@@ -1,0 +1,32 @@
+{% extends "base_site.html"%}
+{%block head_title%} Subjects ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h1>continuous_Assessment</h1>
+
+
+
+<table border="1" cellpadding="2">
+
+
+<th>subject name</th>
+<th>Test Name</th>
+<th>Test Mark</th>
+
+{% for x in object_list%}
+
+<tr>
+<td>{{x.subject_name}}</td>
+<td>{{x.Test_name}}</td>
+<td>{{x.Test_mark}}</td>
+
+
+</tr>
+{%endfor%}
+
+
+</table>
+{%endblock content%}
+

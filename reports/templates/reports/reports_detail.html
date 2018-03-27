@@ -1,0 +1,30 @@
+{% extends "admin/base_site.html"%}
+{%block head_title%} Subjects ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h1> Examination Marks</h1>
+
+
+
+<table border="1" cellpadding="1">
+
+<th >student number</th>
+<th>subject name</th>
+<th>Total Mark</th>
+<th>grade</th>
+<th>comment </th>
+{% for obj in object_list%}
+
+<tr>
+<td>{{obj.student_number}}</a></td>
+<td>{{obj.subject_name}}</td>
+<td>{{obj.Total_Mark}}</td>
+<td>{{obj.grade}}</td>
+<td>{{obj.comment}}</td>
+</tr>
+{%endfor%}
+</table>
+{%endblock content%}
+

@@ -1,0 +1,10 @@
+{% extends "base_site.html"%}
+{%block head_title%} {{title }}||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h2> {{object.student_number}}</h2>
+<h3>{{object.subject_ID}}</h3>
+{%endblock content%}
+

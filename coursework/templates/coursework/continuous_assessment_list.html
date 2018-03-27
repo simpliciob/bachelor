@@ -1,0 +1,37 @@
+{% extends "base_site.html"%}
+{%block head_title%} Subjects ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h1>continuous_Assessment</h1>
+
+
+
+<table border="1" cellpadding="2">
+
+<th>student number</d>
+<th>subject name</th>
+<th>Test Name</th>
+<th>Test Mark</th>
+<th>Edit</th>
+<th>Delete</th>
+
+{% for obj in object_list%}
+
+<tr>
+<td>{{obj.student_number}}</td>
+<td>{{obj.subject_name}}</td>
+<td>{{obj.Test_name}}</td>
+<td>{{obj.Test_mark}}</td>
+<td><a href='{%url "coursework:update" obj.id %}'>edit| </a></td>
+<td><a href='{%url "coursework:delete" obj.id %}'>delete</a></td>
+
+
+</tr>
+{%endfor%}
+
+
+</table>
+{%endblock content%}
+

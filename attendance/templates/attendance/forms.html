@@ -1,0 +1,24 @@
+{% extends "base_site.html"%}
+{%block head_title%} Add Attendance ||{{block.super}}{%endblock head_title%}
+
+
+{%block content %}
+
+{%if form.errors.non_field_errors %}
+{{form.errors.non_field_errors}}
+{% endif %}
+
+<form method="POST">
+<fieldset class="module aligned wide">
+{% csrf_token %}
+<!--Student Number:</br><input name="student_number" type="text"></br>
+Subject_ID:</br><input name="subject_ID" type="text"></br>
+ Mark: </br><input name="Total_Mark" type="text"></br>-->
+ {{form.as_p}}
+ <center>
+<input type="submit" value="add"></br>
+</center>
+</form>
+</fieldset>
+{%endblock %}
+

@@ -1,0 +1,41 @@
+{% extends "base_site.html"%}
+{%block head_title%} result system ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h1> Examination Marks</h1>
+
+
+
+<table border="1" cellpadding="1">
+<th>student_number</th>
+<th>class_position</th>
+<th>comments</th>
+<th>behaviour </th>
+<th>achievements </th>
+<th>Edit</td>
+<th>delete</td>
+
+{% for m in object_list%}
+<tr>
+<td >{{m.student_number}}</td>
+<td>{{m.class_position}}</td>
+<td>{{m.comments}}</td>
+<td>{{m.behaviour}}</td>
+<td>{{m.achievements}}</td>
+<td><a href='{%url "reports:update" m.id %}'>edit| </a></td>
+<td><a href='{%url "reports:delete" m.id %}'>delete</a></td>
+
+
+</tr>
+{%endfor%}
+</table>
+
+
+
+</hr>
+
+
+{%endblock content%}
+

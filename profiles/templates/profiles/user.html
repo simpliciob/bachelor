@@ -1,0 +1,47 @@
+{% extends "base.html"%}
+{%block head_title%} {{user.username}} ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h2> {{user.username}}</h2>
+<p>{% include 'profiles/snippets/follow_form.html' with username=user.username is_following=is_following%}</p>
+<form method="GET" action=".">
+<input type="text" placeholder="search..." name="q" value={{request.GET.q}}>
+<button type="submit">search</button>
+</form>
+</hr>
+
+
+<h2> {{user.username}}</h2>
+{%if locations %}
+
+
+<table border="1">
+<th> studentnumber</th>
+<th>subject_ID</th>
+<th>paper1_Mark</th>
+<th>paper2_Mark</th>
+<th>paper3_Mark</th>
+<th>paper4_Mark</th>
+{% for rest in locations%}
+
+<tr>
+<td><a href='{{request.path}}?q={{rest.student_number}}'>{{rest.student_number}}</a></td>
+<td>{{rest.subject_ID}}</td>
+<td>{{rest.paper1_Mark}}</td>
+<td>{{rest.paper2_Mark}}</td>
+<td>{{rest.paper3_Mark}}</td>
+<td>{{rest.paper4_Mark}}</td>
+</tr>
+{%endfor%}
+<a href='{{request.path}}?q={{ing}}'></a>
+
+
+</table>
+{% else%}
+<p><strong>No items Found</strong></p>
+
+{%endif%}
+{%endblock content%}
+

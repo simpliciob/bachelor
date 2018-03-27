@@ -1,0 +1,54 @@
+{% extends "base_site.html"%}
+{%block head_title%} Subjects ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h1>Performance Measurement</h1>
+
+
+<table >
+<th> class position:</th> 
+<th>comment:  </th>       
+<th>behaviour  </th>      
+<th>achievement </th>
+{% for obj in report %}
+<tr>
+<td>{{obj.class_position}}</td>
+<td>{{obj.comments}}</td>
+<td>{{obj.behaviour}}</td>
+<td>{{obj.achievements}}</td>
+</tr>
+{% endfor %}
+
+
+
+</table>
+</br></br></br>
+<h2>Examination Results</h2>
+
+<table border="1" cellpadding="2">
+
+
+<th>subject name</th>
+<th>Total Mark</th>
+<th>grade</th>
+<th>comment</th>
+
+
+{% for x in object_list%}
+
+<tr>
+<td>{{x.subject_name}}</td>
+<td>{{x.Total_Mark}}</td>
+<td>{{x.grade}}</td>
+<td>{{x.comment}}</td>
+
+
+</tr>
+{%endfor%}
+
+
+</table>
+{%endblock content%}
+

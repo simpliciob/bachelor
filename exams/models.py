@@ -1,0 +1,48 @@
+from django.db import models
+from django.conf import settings
+from django.core.urlresolvers import reverse
+from django.db.models import Q
+User=settings.AUTH_USER_MODEL
+
+
+class ExamMarkQuerySet(models.query.QuerySet):
+    def search(self,query):
+        if query:
+            query=query.strip()
+            return self.filter(Q(student_number__icontains=query)|
+                               Q(grade__icontains=query)|
+                               Q(Total_Mark__icontains=query)
+                               ).distinct()
+        return self
+class ExamMarkManager(models.Manager):
+    def get_queryset(self):
+        return ExamMarkQuerySet(self.model,using=self._db)
+        
+    def search(self,query):
+        return self.get_queryset().search(query)
+    
+    
+   
+class ExamMark(models.Model):
+    user=models.ForeignKey(User)
+    student_number=models.CharField(max_length=50,blank=False,null=False)
+    subject_name=models.CharField(max_length=50)
+    Total_Mark=models.IntegerField()
+    grade=models.CharField(max_length=1)
+    comment=models.TextField(max_length=200)
+    objects=ExamMarkManager()
+    def __str__(self):
+        return self.student_number
+
+
+    def get_absolute_url(self):
+        return reverse('exams:detail', kwargs={'pk':self.pk})
+    def get_absolute_url(self):
+        return reverse('exams:update', kwargs={'pk':self.pk})
+
+
+    
+# Create your models here.
+
+
+# Create your models here.

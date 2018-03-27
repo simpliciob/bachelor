@@ -1,0 +1,40 @@
+<div class="container">
+<a href='{%url "home" %}'>home |</a>
+<a href='{%url "about" %}'>about |</a>
+<a href='{%url "contact" %}'>contact |</a>
+{% if user.is_authenticated and user.is_teacher %}
+
+
+<a href='{%url "exams:examlist" %}'>view marks| </a>
+<a href='{%url "exams:addmark" %}'>Add Exam Marks |</a>
+<a href='{%url "coursework:listcontinuous" %}'>view coursework |</a>
+<a href='{%url "coursework:addcontinuous" %}'>Add coursework |</a>
+<a href='{%url "profiles:profilelist" %}'>view users |</a>
+<a href='{%url "reports:reportlist" %}'>view reports |</a>
+<a href='{%url "reports:addreport" %}'>add reports |</a>
+<a href='{%url "register" %}'>register|</a>
+<a href='{%url "password_change" %}'>change password |</a>
+<a href='{%url "password_reset" %}'>reset password |</a>
+<a href='{%url "logout" %}'>logout |</a>
+
+
+{% else %}
+{% if user.is_authenticated and user.is_student%}
+<a href='{%url "students:studentscontinuous" %}'>view coursework | </a>
+<a href='{%url "students:exammark" %}'>view Exams |</a>
+<a href='{%url "students:reportst" %}'>view report |</a>
+<a href='{%url "logout" %}'> logout|</a>
+{% else %}
+{% if user.is_authenticated and user.is_admin %}
+<a href='{%url "profiles:student" %}'>view students |</a>
+<a href='{%url "profiles:teacher" %}'>view teachers |</a>
+<a href='{%url "register" %}'>register |</a>
+
+<a href='{%url "logout" %}'>logout |</a>
+{% endif %}
+{% endif %}
+{% endif %}
+
+
+
+</div>

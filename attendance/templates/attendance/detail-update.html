@@ -1,0 +1,14 @@
+{% extends "base_site.html"%}
+{%block head_title%} {{form.instance.student_number}} ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h2>{{object.student_number}} </h2>
+<h3>{{object.status}}</h3>
+<hr/>
+<h3> make changes </h3>
+{%include 'snippets/form_snippets.html' with form=form%}
+{%endblock content%}
+
+

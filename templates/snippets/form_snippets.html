@@ -1,0 +1,23 @@
+{% extends "change_form.html"%}
+{%block head_title%} Add Subjects ||{{block.super}}{%endblock head_title%}
+
+{%block content %}
+<h1> {{title}}</h1>
+{%if form.errors.non_field_errors %}
+{{form.errors.non_field_errors}}
+{% endif %}
+
+<form method="POST">
+<fieldset class="module aligned wide">
+{% csrf_token %}
+<!--Student Number:</br><input name="student_number" type="text"></br>
+Subject_ID:</br><input name="subject_ID" type="text"></br>
+ Mark: </br><input name="Total_Mark" type="text"></br>-->
+ {{form.as_p}}
+ <center>
+<input type="submit" value="add">
+</center>
+
+</form>
+<fieldset>
+{%endblock %}

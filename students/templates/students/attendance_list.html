@@ -1,0 +1,32 @@
+{% extends "base_site.html"%}
+{%block head_title%} Subjects ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h1>Attendance</h1>
+
+
+
+<table border="1" cellpadding="1">
+
+
+<th>date</th>
+<th>status</th>
+<th>reason_of_absence</th>
+
+
+{% for obj in object_list%}
+
+<tr>
+
+<td>{{obj.date}}</td>
+<td>{{obj.status}}</td>
+<td>{{obj.reason_of_absence}}</td>
+
+
+</tr>
+{%endfor%}
+</table>
+{%endblock content%}
+

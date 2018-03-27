@@ -1,0 +1,28 @@
+{% extends "base_site.html"%}
+{%block head_title%} Subjects ||{{block.super}}{%endblock head_title%}
+
+
+
+{%block content %}
+<h1>Students List </h1>
+
+
+
+
+<table border="1" cellpadding="1">
+
+<th >username</th>
+
+
+
+<tr>
+{% for obj in object_list %}
+
+<td>{{obj.username}}</td>
+</tr>
+{%endfor%}
+</table>
+{%endblock content%}
+
+
+
